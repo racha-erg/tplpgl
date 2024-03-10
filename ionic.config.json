@@ -1,0 +1,7 @@
+{
+  "name": "tplpgl",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
