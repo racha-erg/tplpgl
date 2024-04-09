@@ -15,6 +15,19 @@
 
   <div id="container">
     <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Calculatrice</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-input type="number" [(ngModel)]="op1"/>
+        <ion-input type="number" [(ngModel)]="op2"/>
+        <ion-button (click)="addition()"> + </ion-button>
+        <ion-button (click)="sustraction()"> - </ion-button><br/>
+        <ion-label>{{rslt}}</ion-label>
+        <ion-button routerLink="/meteo-widget">Go Meteo</ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

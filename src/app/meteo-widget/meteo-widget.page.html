@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-title>App</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" [fullscreen]="true">
+      <ion-input label="Pay :" placeholder="Enter pay name"[(ngModel)]="payName1"></ion-input>
+      <ion-button id="open-modal" expand="block" (click)="showInfos()">showInfos</ion-button>
+    
+      <ion-modal #modal trigger="open-modal">
+        <ng-template>
+          <ion-content>
+            <ion-toolbar>
+              <ion-title>Today weather</ion-title>
+              <ion-buttons slot="end">
+                <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+            <ion-list>
+              <ion-item>
+                <div *ngIf="payData">
+                  <img class="center" [src]="'https://flagsapi.com/' + payData.sys.country + '/flat/64.png'">
+                  <img src="https://openweathermap.org/img/wn/10d@2x.png" class="center">
+                  <p>City: {{ payData.name }}</p>
+                  <p>Country: {{ payData.sys.country }}</p>
+                  <p>Weather: {{ payData.weather[0].main }}</p>
+                  <p>Description: {{ payData.weather[0].description }}</p>
+                  <p>Temperature: {{ payData.main.temp }} Kelvin</p>
+                  <p>Feels like: {{ payData.main.feels_like }} Kelvin</p>
+                  <p>Pressure: {{ payData.main.pressure }} hPa</p>
+                  <p>Humidity: {{ payData.main.humidity }}%</p>
+                  <p>Wind Speed: {{ payData.wind.speed }} m/s</p>
+                  <p>Cloudiness: {{ payData.clouds.all }}%</p>
+                </div>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </ion-content>
+
+
+   
+
