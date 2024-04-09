@@ -19,11 +19,16 @@
             <ion-list>
               <ion-item>
                 <div *ngIf="payData">
-                  <img class="center" [src]="'https://flagsapi.com/' + payData.sys.country + '/flat/64.png'">
-                  <img src="https://openweathermap.org/img/wn/10d@2x.png" class="center">
-                  <p>City: {{ payData.name }}</p>
-                  <p>Country: {{ payData.sys.country }}</p>
+                  <ion-item>
+                    <ion-avatar slot="start">
+                      <ion-img [src]="'https://flagsapi.com/' + payData.sys.country + '/flat/64.png'"></ion-img>
+                    </ion-avatar>
+                    <ion-label>
+                      <h2>{{ payData.name }} City</h2>
+                    </ion-label>
+                  </ion-item>
                   <p>Weather: {{ payData.weather[0].main }}</p>
+                  <img [src]="'https://openweathermap.org/img/wn/'+ payData.weather[0].icon +'@2x.png'" class="center">
                   <p>Description: {{ payData.weather[0].description }}</p>
                   <p>Temperature: {{ payData.main.temp }} Kelvin</p>
                   <p>Feels like: {{ payData.main.feels_like }} Kelvin</p>
