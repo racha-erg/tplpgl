@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'meteo-widget',
     loadChildren: () => import('./meteo-widget/meteo-widget.module').then( m => m.MeteoWidgetPageModule)
   },
+  {
+    path: 'to-do-list',
+    loadChildren: () => import('./to-do-list/to-do-list.module').then( m => m.ToDoListPageModule)
+  },
 ];
 
 @NgModule({
